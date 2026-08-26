@@ -1,0 +1,15 @@
+{
+  "name": "regional-sales-analytics-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio-safe retail sales analytics application using synthetic data.",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "prepare-app": "node tools/prepare_app.mjs",
+    "tauri": "tauri",
+    "desktop:build": "npm run prepare-app && tauri build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0"
+  }
+}

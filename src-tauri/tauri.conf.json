@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Regional Sales Analytics",
+  "version": "1.0.0",
+  "identifier": "com.portfolio.regional-sales-analytics",
+  "build": { "frontendDist": "../app" },
+  "app": {
+    "windows": [{ "title": "Regional Sales Analytics", "width": 1440, "height": 900, "minWidth": 1024, "minHeight": 700 }],
+    "security": { "csp": null }
+  },
+  "bundle": { "active": true, "targets": "all" }
+}
