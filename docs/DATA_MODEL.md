@@ -20,7 +20,7 @@ Branch Master (1) ───────────────< Daily Sales (*)
 ## Grain
 
 - **Branch Master:** one row per branch.
-- **Daily Sales:** one row per date + branch after normalization. The sample intentionally contains a duplicate source row so Data Quality can detect it.
+- **Daily Sales:** one row per date + branch after normalization.
 - **Monthly Budget:** one row per month + branch.
 - **Delivery Channel:** one row per date + branch with channel activity.
 
@@ -37,3 +37,5 @@ Branch Master (1) ───────────────< Daily Sales (*)
 ## Analytical relationship rule
 
 Delivery Channel is modeled as a **component** of Core Retail Sales. This relationship is deliberately documented to prevent double counting.
+
+`Total Sales = Core Retail + Service Channel`. Delivery is joined for contribution analysis and subtracted only for the ex-Delivery counterfactual. No data files are distributed with this model.

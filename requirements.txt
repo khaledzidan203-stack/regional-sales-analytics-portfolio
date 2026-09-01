@@ -1,3 +1,1 @@
-# No Python packages are required to run the browser dashboard.
-# Python 3 is used only as a lightweight local HTTP server via:
-#   python -m http.server 8000
+# The repository test suite uses only the Python standard library.

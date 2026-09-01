@@ -2,7 +2,7 @@
 
 ## What I personally built
 
-I designed the analytical logic and end-to-end workflow behind this project: data ingestion, normalization, KPI definitions, business-rule validation, like-for-like analysis, budget comparison, intervention analysis, channel-contribution logic, data-quality review, interactive filtering, analytical tables, and the desktop-packaging approach. The public repository is a sanitized derivative that preserves the analytical ideas while replacing business-specific data and labels with synthetic examples.
+I designed the analytical logic and end-to-end workflow behind this project: data ingestion, normalization, KPI definitions, business-rule validation, like-for-like analysis, budget comparison, intervention analysis, channel-contribution logic, data-quality review, interactive filtering, analytical tables, and desktop packaging. The public repository preserves generalized architecture and logic while excluding all business datasets.
 
 ## Analytical skills demonstrated
 
@@ -33,7 +33,7 @@ I designed the analytical logic and end-to-end workflow behind this project: dat
 
 - HTML5 / CSS3 / JavaScript.
 - Local-first browser analytics.
-- CSV data modeling.
+- CSV/XLSX runtime input architecture; no input files are distributed.
 - SVG / DOM-based lightweight charts.
 - Tauri 2 / Rust desktop packaging structure.
 - SQL analytical query examples.

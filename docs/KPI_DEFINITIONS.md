@@ -31,4 +31,4 @@
 - AST is weighted using total sales divided by total customers; daily AST values are not averaged.
 - Partial-month budget comparisons are prorated by calendar days in scope.
 - Estimated Recovery is a counterfactual scenario indicator and **not proof of causality**.
-- Delivery-channel sales are already embedded within core retail in the synthetic model, so they are never added again to total sales.
+- Delivery-channel sales are already embedded within core retail in the accounting model, so they are never added again to total sales.

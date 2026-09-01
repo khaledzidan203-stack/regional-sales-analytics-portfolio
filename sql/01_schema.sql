@@ -1,4 +1,4 @@
--- Portfolio schema using generalized synthetic entities.
+-- Generalized logical schema. The repository intentionally provides no data rows.
 CREATE TABLE dim_branch (
     branch_id TEXT PRIMARY KEY,
     branch_name TEXT NOT NULL,

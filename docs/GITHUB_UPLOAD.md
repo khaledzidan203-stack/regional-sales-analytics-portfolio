@@ -33,19 +33,19 @@ If Git asks for authentication, use GitHub's browser/device authentication flow 
 ## After upload
 
 1. Open the repository on GitHub and confirm the README renders correctly.
-2. Open the three screenshot images from the README.
-3. Verify `data/sample/` contains only synthetic data.
+2. Confirm no analytical screenshots or business data files are present.
+3. Confirm publication, test, link, version, and page-count checks pass.
 4. Check the **Actions** tab and confirm `Validate portfolio repository` passes.
 5. Add repository topics such as `data-analysis`, `business-analysis`, `javascript`, `sql`, `power-bi`, `analytics`, `dashboard`, `tauri`.
 6. In **About**, optionally add a concise description and your portfolio/GitHub Pages link later.
 7. Pin the repository on your GitHub profile.
 
-## Optional GitHub Pages demo
+## Optional GitHub Pages empty-state review
 
-Because the dashboard reads files using relative paths, the easiest Pages layout is to publish the repository root and open `/src/`. If using GitHub Pages from the `main` branch, select **Settings → Pages → Deploy from a branch → main / root**. The public URL will then be similar to:
+Publish the repository root and open `/app/`. The interface remains in its data-free upload state until a reviewer privately selects compatible inputs.
 
 ```text
-https://YOUR-USERNAME.github.io/regional-sales-analytics-portfolio/src/
+https://YOUR-USERNAME.github.io/regional-sales-analytics-portfolio/app/
 ```
 
 If Pages behavior changes, use a simple static host that serves the repository root without changing relative paths.

@@ -28,3 +28,14 @@ JOIN dim_branch b ON b.branch_id = s.branch_id
 WHERE s.sales_date BETWEEN :date_from AND :date_to
 GROUP BY s.branch_id, b.city
 ORDER BY sales DESC;
+
+-- Budget variance at Month x Branch grain.
+SELECT branch_id, month_key,
+       SUM(total_budget) AS budget,
+       SUM(:actual_sales_for_month) AS actual_sales,
+       SUM(:actual_sales_for_month) - SUM(total_budget) AS budget_gap,
+       CASE WHEN SUM(total_budget) = 0 THEN NULL
+            ELSE SUM(:actual_sales_for_month) * 1.0 / SUM(total_budget)
+       END AS achievement
+FROM fact_budget_monthly
+GROUP BY branch_id, month_key;

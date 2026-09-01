@@ -6,7 +6,7 @@ A multi-branch retail operator needs a single analytical view to understand sale
 
 ## Functional requirements
 
-1. Load synthetic daily sales, monthly targets, branch master data, and delivery-channel data.
+1. Load privately held daily sales, monthly targets, branch master, and optional delivery-channel inputs at runtime.
 2. Filter analysis by date, city, and branch.
 3. Prorate monthly budgets when the selected period covers only part of a month.
 4. Calculate total, core-retail, service-channel, priority-sales, customer-count, and AST KPIs.
@@ -17,13 +17,13 @@ A multi-branch retail operator needs a single analytical view to understand sale
 9. Classify branch performance using customer-count and AST behavior.
 10. Detect and list common data-quality issues.
 11. Provide cross-filtering from selected charts.
-12. Export the active analytical table.
+12. Export the current page or complete analysis as multi-sheet XLSX.
 
 ## Non-functional requirements
 
 - Local-first and easy to run.
 - No credentials or external database required.
-- Synthetic data only.
+- No real, synthetic, dummy, or generated business dataset committed to the repository.
 - Clear metric definitions and reproducible formulas.
 - Responsive layout suitable for desktop portfolio review.
 - No claim of causal impact from counterfactual intervention estimates.

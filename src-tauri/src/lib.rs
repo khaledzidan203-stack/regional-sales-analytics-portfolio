@@ -2,5 +2,5 @@
 pub fn run() {
     tauri::Builder::default()
         .run(tauri::generate_context!())
-        .expect("error while running application");
+        .expect("error while running Regional Sales Performance Analytics");
 }

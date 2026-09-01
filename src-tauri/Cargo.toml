@@ -1,18 +1,16 @@
 [package]
-name = "regional-sales-analytics"
-version = "1.0.0"
-description = "Regional Sales Analytics Portfolio"
-authors = ["Repository Author"]
+name = "regional-sales-performance-desktop"
+version = "1.0.2"
+description = "Regional Sales Performance Analytics desktop application"
+authors = ["Portfolio Maintainer"]
 edition = "2021"
 
 [lib]
-name = "regional_sales_analytics_lib"
+name = "regional_sales_performance_desktop_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
-tauri-build = { version = "2", features = [] }
+tauri-build = { version = "2.6.3", features = [] }
 
 [dependencies]
-tauri = { version = "2", features = [] }
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
+tauri = { version = "2.11.5", features = [] }

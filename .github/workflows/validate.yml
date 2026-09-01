@@ -23,3 +23,11 @@ jobs:
 
       - name: Privacy scan
         run: python tools/privacy_scan.py
+
+      - name: Analytics and publication tests
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+
+      - name: Verify generated desktop frontend
+        run: |
+          node tools/prepare_app.mjs
+          git diff --exit-code -- app/index.html app/generation-manifest.json

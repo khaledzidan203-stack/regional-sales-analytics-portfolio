@@ -1,14 +1,14 @@
 # Usage
 
-1. Start the local server and open `/src/`.
+1. Start the local server and open `/app/`.
 2. Use the global date filters to choose a reporting period.
 3. Filter by city or branch. Clicking selected city/branch bars also updates the dashboard filter context.
 4. On **Like-for-Like**, switch between Strict Comparable and Total Current Scope.
-5. On **Intervention Impact**, change the intervention date to recalculate 90-day pre/post windows and momentum.
+5. On **Recovery & Intervention**, select explicit Pre/Post windows and review duration warnings.
 6. On **Delivery Channel Impact**, review component contribution without double counting.
 7. On **Customer Count & AST**, compare traffic and basket productivity.
-8. On **Data Quality**, inspect the intentionally injected synthetic review cases.
-9. Use **Export current table** to download the visible analytical table as CSV.
+8. On **Data Quality**, inspect review cases present in the privately selected inputs.
+9. Export the current page or complete analysis as a multi-sheet XLSX workbook.
 
 ## Suggested recruiter walkthrough
 

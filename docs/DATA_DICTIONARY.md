@@ -1,18 +1,18 @@
 # Data Dictionary
 
-## `data/sample/branch_master.csv`
+## Branch Master input
 
 | Column | Type | Description |
 |---|---|---|
-| Branch | Text | Synthetic branch identifier (`B001`, etc.) |
-| Branch Name | Text | Synthetic display name |
-| City | Text | Synthetic geographic grouping |
-| Category | Text | Synthetic branch format/category |
-| Size SQM | Number | Synthetic branch size |
+| Branch | Text | Runtime branch identifier |
+| Branch Name | Text | Runtime display name |
+| City | Text | Runtime geographic grouping |
+| Category | Text | Runtime branch format/category |
+| Size SQM | Number | Runtime branch size |
 | Opening Date | Date | Lifecycle start date |
 | Closing Date | Date / blank | Lifecycle end date when applicable |
 
-## `data/sample/sales_daily.csv`
+## Sales Collection CSV
 
 | Column | Type | Description |
 |---|---|---|
@@ -23,7 +23,7 @@
 | Priority Sales | Decimal | Strategic subset of core retail |
 | Customer Count | Integer | Daily customer/transaction count |
 
-## `data/sample/monthly_budget.csv`
+## Sales Budget Breakdown XLSX
 
 | Column | Type | Description |
 |---|---|---|
@@ -33,10 +33,12 @@
 | Core Retail Budget | Decimal | Monthly target for core retail |
 | Service Channel Budget | Decimal | Monthly target for service channel |
 
-## `data/sample/delivery_channel.csv`
+## Optional Delivery Channel XLSX
 
 | Column | Type | Description |
 |---|---|---|
 | Date | Date | Channel sales date |
 | Branch | Text | Branch key |
 | Delivery Channel Sales | Decimal | Sales attributable to the delivery sub-channel; already included within Core Retail Sales |
+
+These schemas document runtime expectations only. The repository contains no populated business input files.

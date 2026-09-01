@@ -1,9 +1,0 @@
-Branch,Branch Name,City,Category,Size SQM,Opening Date,Closing Date
-B001,North Hub,Metro North,Flagship,240,2024-01-01,
-B002,North Point,Metro North,Standard,160,2024-01-01,
-B003,North Square,Metro North,Standard,125,2024-03-01,
-B004,Central Hub,Metro Central,Flagship,220,2024-01-01,
-B005,Central Point,Metro Central,Standard,150,2024-01-01,
-B006,Central Mini,Metro Central,Compact,80,2024-01-01,2026-05-31
-B007,East Point,Metro East,Standard,135,2025-10-01,
-B008,East Mini,Metro East,Compact,75,2024-01-01,

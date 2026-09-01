@@ -1,14 +1,14 @@
 # Power BI Mapping
 
-No `.pbix` file is included in this repository. This document shows how the public data model and formulas map directly to a Power BI implementation.
+No `.pbix` file is included or claimed. This document shows how the generalized model and formulas map to a Power BI implementation using privately managed source data.
 
 ## Recommended star schema
 
-- `DimBranch` ← `branch_master.csv`
+- `DimBranch` ← Branch Master input
 - `DimDate` ← generated calendar table
-- `FactSales` ← `sales_daily.csv`
-- `FactBudget` ← `monthly_budget.csv`
-- `FactDelivery` ← `delivery_channel.csv`
+- `FactSales` ← Sales Collection input
+- `FactBudget` ← Budget Breakdown input
+- `FactDelivery` ← optional Delivery Channel input
 
 Relationships:
 - `DimBranch[Branch]` 1:* to all fact tables.

@@ -1,15 +1,22 @@
 {
-  "name": "regional-sales-analytics-portfolio",
-  "version": "1.0.0",
+  "name": "regional-sales-performance-desktop",
+  "version": "1.0.2",
   "private": true,
-  "description": "Portfolio-safe retail sales analytics application using synthetic data.",
+  "description": "Data-free 18-page regional sales analytics and Windows desktop application portfolio.",
   "scripts": {
     "dev": "python -m http.server 8000",
     "prepare-app": "node tools/prepare_app.mjs",
     "tauri": "tauri",
-    "desktop:build": "npm run prepare-app && tauri build"
+    "desktop:build": "tauri build",
+    "test": "python -m unittest discover -s tests -p test_*.py",
+    "validate": "python tools/validate_repo.py && python tools/privacy_scan.py"
+  },
+  "dependencies": {
+    "chart.js": "4.4.1",
+    "chartjs-plugin-datalabels": "2.2.0",
+    "xlsx-js-style": "1.2.0"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^2.0.0"
+    "@tauri-apps/cli": "2.8.4"
   }
 }

@@ -18,11 +18,10 @@ This repository is a public portfolio derivative, not a copy of an internal prod
 ## Generalized
 
 - Business channels are represented as Core Retail, Service Channel, Priority Sales, and Delivery Channel.
-- Geography uses synthetic names such as Metro North / Central / East.
-- Branch identifiers use synthetic `B###` codes.
-- Intervention examples use generic performance-improvement scenarios.
+- Geography and branch identifiers are supplied only at runtime and are not committed.
+- Organization-specific action owners, thresholds, and review cadence are not embedded.
 - Data quality rules are expressed as broadly applicable analytical controls.
 
-## Synthetic data
+## Data-free repository
 
-All files under `data/sample/` were generated specifically for this portfolio and do not represent real customers, branches, employees, sales figures, or company performance.
+No real, synthetic, dummy, or generated business dataset is included. Tests use in-memory objects or temporary files removed automatically. Analytical screenshots with business figures are also excluded.
