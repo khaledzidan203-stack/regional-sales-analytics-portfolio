@@ -7,7 +7,7 @@ Allowed after review:
 - Generic documentation and diagrams
 - Sanitized V12 analytical source
 - Sanitized Tauri and Rust source
-- Architecture diagrams and empty-state screenshots after review
+- Architecture diagrams that contain no business data
 - Public build and installation instructions
 - Technical and desktop architecture documentation
 - KPI, LFL, Recovery, Delivery Channel, and Data Quality methodology

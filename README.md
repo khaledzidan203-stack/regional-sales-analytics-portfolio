@@ -122,7 +122,7 @@ No real, synthetic, dummy, or generated business dataset is committed. Formula t
 
 ## Screenshots
 
-Analytical screenshots are intentionally omitted. Future assets are limited to architecture diagrams or empty-state UI captures with no business information. See the [screenshot plan](docs/screenshots/SCREENSHOT_PLAN.md).
+Analytical screenshots are intentionally excluded from this public portfolio release.
 
 ## Repository Structure
 

@@ -15,5 +15,4 @@
 - [Validation](GITHUB_UPLOAD.md)
 - [Technical Decisions](technical_decisions/)
 - [Lessons Learned](lessons_learned/)
-- [Screenshots](screenshots/)
 Each area is populated from verified generalized behavior. Business datasets and analytical screenshots are intentionally excluded.
