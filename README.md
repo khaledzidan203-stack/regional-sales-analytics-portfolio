@@ -6,6 +6,18 @@ This public portfolio repository contains the analytical architecture, desktop a
 
 No company data, customer data, branch performance data, credentials, or proprietary datasets are included. Analytical screenshots, executables, and installers are also excluded.
 
+## Featured Portfolio
+
+**Khaled Zidan — Healthcare & Business Data Analytics**
+
+[Saudi Healthcare Analytics](https://github.com/khaledzidan203-stack/saudi-healthcare-analytics) ·
+[Hospital360](https://github.com/khaledzidan203-stack/Hospital360) ·
+[Online Retail Growth & Customer Intelligence](https://github.com/khaledzidan203-stack/online-retail-growth-customer-intelligence) ·
+[Pharmacy Category Management](https://github.com/khaledzidan203-stack/pharmacy-category-management) ·
+[Regional Sales Performance](https://github.com/khaledzidan203-stack/regional-sales-analytics-portfolio)
+
+**Core stack:** Power BI · SQL · Python · DAX · Analytics Engineering · Healthcare / Pharmacy / Retail Analytics
+
 ## Executive Summary
 
 The project centralizes multi-source performance logic in a local-first analytical application. It evaluates sales against budget, customer traffic and weighted average sales per transaction (AST), like-for-like performance, intervention recovery scenarios, component-channel contribution, branch lifecycle effects, and data readiness.
