@@ -1,51 +1,62 @@
-# GitHub Upload Instructions
+# Repository Setup, Validation & Pages
 
-## Option A — GitHub website
+This repository is already structured for automated validation and static GitHub Pages review.
 
-1. Sign in to GitHub.
-2. Click **New repository**.
-3. Repository name suggestion: `regional-sales-analytics-portfolio`.
-4. Add a short description such as: `Interactive retail sales analytics portfolio: KPI, budget gap, LFL, intervention impact, channel contribution and data quality.`
-5. Choose **Public**.
-6. Do **not** initialize with a README, license, or `.gitignore` because these files already exist locally.
-7. Create the repository.
-8. On the empty-repository page choose **uploading an existing file**.
-9. Upload the contents of this repository folder, preserving the directory structure.
-10. Commit with a message such as `Initial public portfolio release`.
+## Local validation
 
-The command-line method below is preferable because it preserves the repository structure more reliably.
-
-## Option B — Git command line (recommended)
-
-Open Terminal / PowerShell inside the unzipped repository folder:
+Before pushing a change:
 
 ```bash
-git init
-git add .
-git commit -m "Initial public portfolio release"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/regional-sales-analytics-portfolio.git
-git push -u origin main
+npm ci
+npm test
+npm run validate
+npm run prepare-app
+git diff --exit-code -- app/index.html app/generation-manifest.json
 ```
 
-If Git asks for authentication, use GitHub's browser/device authentication flow or a supported personal access token. Do not store credentials inside this repository.
+## Generated frontend rule
 
-## After upload
+`app/index.html` is generated from:
 
-1. Open the repository on GitHub and confirm the README renders correctly.
-2. Confirm no analytical screenshots or business data files are present.
-3. Confirm publication, test, link, version, and page-count checks pass.
-4. Check the **Actions** tab and confirm `Validate portfolio repository` passes.
-5. Add repository topics such as `data-analysis`, `business-analysis`, `javascript`, `sql`, `power-bi`, `analytics`, `dashboard`, `tauri`.
-6. In **About**, optionally add a concise description and your portfolio/GitHub Pages link later.
-7. Pin the repository on your GitHub profile.
+`source/Regional_Sales_Performance_V12_PORTFOLIO.html`
 
-## Optional GitHub Pages empty-state review
+Do not edit the generated frontend as the authoritative source.
 
-Publish the repository root and open `/app/`. The interface remains in its data-free upload state until a reviewer privately selects compatible inputs.
+After any generalized-source change, run:
 
-```text
-https://YOUR-USERNAME.github.io/regional-sales-analytics-portfolio/app/
+```bash
+npm run prepare-app
 ```
 
-If Pages behavior changes, use a simple static host that serves the repository root without changing relative paths.
+and commit both:
+
+- `app/index.html`
+- `app/generation-manifest.json`
+
+## GitHub Actions
+
+The workflow:
+
+`.github/workflows/validate.yml`
+
+checks repository structure, privacy/publication rules, analytical regression tests, source/app parity, page count, versions, local desktop dependencies, and Markdown links.
+
+## GitHub Pages
+
+The repository can be reviewed in its data-free upload state at:
+
+`https://khaledzidan203-stack.github.io/regional-sales-analytics-portfolio/app/`
+
+The interface remains empty until the user selects compatible local input files.
+
+## Publication checklist
+
+Before release:
+
+- confirm no business data file has been committed;
+- confirm no business-result screenshot has been added;
+- confirm no binary/installer artifact has been added;
+- confirm privacy scanning passes;
+- confirm analytical tests pass;
+- confirm source/app regeneration produces zero diff;
+- manually review the final staged diff.
