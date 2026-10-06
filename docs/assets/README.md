@@ -1,45 +1,56 @@
 # Presentation Assets
 
-This directory contains presentation-only visual assets for the Regional Sales Performance Analytics project.
+This directory contains presentation-only visual assets for Regional Sales Performance Analytics.
 
-## Intended use
+## Current overview
 
-The primary overview image stored here is used by the repository README to summarize the analytical and desktop architecture at a glance.
+`Regional Sales Analytics Dashboard.png`
 
-Recommended filename:
+The root README uses this image as a high-level schematic of the analytical and desktop-delivery architecture.
 
-`regional_sales_performance_analytics_overview.png`
+## Evidence-supported scope
 
-The overview should represent only repository-supported claims, including:
+The repository supports:
 
-- data-free public analytical architecture;
-- 18-page regional sales performance engine;
-- Total Sales, Budget, Achievement, Gap, Core Retail, Service Channel, Priority Sales, Customer Count, and weighted AST;
-- same-period-last-year / Like-for-Like analysis;
-- Strict Comparable versus Total Region scopes;
-- Pre/Post Recovery scenario analysis;
+- 18 analytical pages;
+- Total Sales, Budget, Achievement, Gap, Core Retail, Service Channel, Priority Sales, Customer Count and weighted AST;
+- Like-for-Like analysis;
+- Strict Comparable and Total Region scopes;
+- Pre/Post recovery scenario analysis;
 - Expected Post and Estimated Recovery as non-causal scenario measures;
-- Delivery Channel contribution without double counting;
-- branch lifecycle analysis for openings and closures;
+- embedded Delivery contribution without double counting;
+- branch lifecycle analysis;
 - Action Plan generation;
 - Data Quality review;
-- global multi-select filters and chart cross-filtering;
-- current-page and full-analysis XLSX export;
+- global filtering and chart cross-filtering;
+- current-page and complete multi-sheet XLSX export;
 - generalized HTML/CSS/JavaScript analytical source;
-- Chart.js 4.4.1, chartjs-plugin-datalabels 2.2.0, and xlsx-js-style 1.2.0;
-- reproducible generation of the offline frontend;
-- Tauri 2 / Rust / Wry / WebView2 Windows desktop packaging;
-- NSIS x64 release target;
-- engine-neutral analytical SQL reference;
-- Power BI mapping/design documentation only;
-- automated validation, privacy scanning, and source/app parity checks.
+- Chart.js, chartjs-plugin-datalabels and xlsx-js-style;
+- reproducible offline frontend generation;
+- Tauri/Rust/Wry/WebView2 desktop packaging source;
+- NSIS x64 bundle target;
+- engine-neutral SQL references;
+- Power BI mapping/design documentation;
+- automated validation and privacy scanning.
 
 ## Evidence boundary
 
-Assets in this directory are presentation summaries only. They are not business data, analytical result screenshots, Power BI runtime evidence, compiled desktop evidence, or proof of any real regional sales figures.
+The overview image is a **presentation schematic**, not an analytical result screenshot.
 
-The repository is intentionally data-free. No real, synthetic, dummy, or generated business dataset is committed.
+Its cards, charts, region names, action rows, shapes and placeholder values are illustrative. They are not committed business data and do not prove any business outcome.
 
-Authoritative claims remain defined by the generalized analytical source, generated offline frontend, generation manifest, Rust/Tauri source, tests, SQL references, KPI/methodology documentation, publication controls, and GitHub Actions validation.
+The repository is intentionally data-free. No real, synthetic, dummy or generated business dataset is committed.
 
-Any visual KPI cards or charts in the overview must use neutral placeholders or abstract indicators rather than fabricated business figures.
+Authoritative implementation evidence remains:
+
+- `source/Regional_Sales_Performance_V12_PORTFOLIO.html`;
+- `app/index.html`;
+- `app/generation-manifest.json`;
+- `src-tauri/`;
+- `tools/`;
+- `tests/`;
+- `sql/`;
+- analytical methodology and publication-governance documentation;
+- GitHub Actions validation.
+
+No Power BI runtime file, compiled Windows executable, installer or business-result screenshot is claimed.
