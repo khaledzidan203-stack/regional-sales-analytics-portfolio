@@ -1,21 +1,28 @@
 # Usage
 
 1. Start the local server and open `/app/`.
-2. Use the global date filters to choose a reporting period.
-3. Filter by city or branch. Clicking selected city/branch bars also updates the dashboard filter context.
-4. On **Like-for-Like**, switch between Strict Comparable and Total Current Scope.
-5. On **Recovery & Intervention**, select explicit Pre/Post windows and review duration warnings.
-6. On **Delivery Channel Impact**, review component contribution without double counting.
-7. On **Customer Count & AST**, compare traffic and basket productivity.
-8. On **Data Quality**, inspect review cases present in the privately selected inputs.
-9. Export the current page or complete analysis as a multi-sheet XLSX workbook.
+2. Upload schema-compatible private inputs locally.
+3. Use global date and structural filters to choose the reporting context.
+4. Use chart selections to apply cross-filters where supported.
+5. On Like-for-Like pages, switch between Strict Comparable and Total Region / Current Filters.
+6. On Recovery & Intervention, select explicit Pre/Post windows and review duration warnings.
+7. On Delivery Channel Impact, review component contribution without double counting.
+8. On Customer Count & AST, compare traffic and basket productivity.
+9. On lifecycle pages, separate stable-base performance from openings and closures.
+10. On Data Quality, review cases before drawing conclusions.
+11. Export the current page or complete analysis as a multi-sheet XLSX workbook.
 
-## Suggested recruiter walkthrough
+## Recommended analytical walkthrough
 
-- Start with Executive Overview.
-- Click a city bar and explain central filter context.
-- Open Budget Gap and show prorated target logic.
-- Open LFL and toggle Strict vs Total.
-- Open Intervention Impact and explain why Estimated Recovery is non-causal.
-- Open Delivery Channel Impact and explain the component-vs-additional-sales modeling decision.
-- Finish with Data Quality to demonstrate analytical governance.
+- Begin with Executive Overview to establish the current filter context.
+- Open Budget Gap to explain target proration and shortfall concentration.
+- Open Sales LFL and toggle Strict Comparable versus Total Region.
+- Review Customer Count & AST to separate traffic and basket effects.
+- Open Recovery to explain Expected Post and Estimated Recovery as scenario measures.
+- Open Delivery Channel Impact to demonstrate embedded-component accounting.
+- Review lifecycle analysis for openings and closures.
+- Finish with Data Quality to confirm decision readiness.
+
+## Data boundary
+
+Runtime inputs stay local to the browser/WebView session. No business dataset is committed with the repository.
