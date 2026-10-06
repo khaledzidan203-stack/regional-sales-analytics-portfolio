@@ -24,6 +24,14 @@ def budget_gap(actual: float, budget: float) -> float:
     return actual - budget
 
 
+def prorated_budget(monthly_budget: float, selected_days: int, days_in_month: int) -> float:
+    if days_in_month <= 0:
+        raise ValueError("days_in_month must be positive")
+    if selected_days < 0 or selected_days > days_in_month:
+        raise ValueError("selected_days must be between 0 and days_in_month")
+    return monthly_budget * selected_days / days_in_month
+
+
 def lfl_growth(current: float, previous: float):
     return safe_div(current - previous, previous)
 
