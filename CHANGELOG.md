@@ -1,35 +1,45 @@
 # Changelog
 
-## 1.0.2 - Unreleased
+## 1.0.2 — Current public source release
 
-### Changed
-- Upgraded the public source to the generalized final 18-page analytical architecture.
-- Added reproducible offline desktop generation and verified Tauri 2.11.5 / NSIS configuration.
-- Added multi-sheet XLSX, LFL, Recovery, Delivery, Data Quality, and cross-filter documentation.
-- Replaced organization-specific labels, action owners, thresholds, and branding with generic public equivalents.
+### Analytical hardening
 
-### Removed
-- All committed real, synthetic, dummy, and generated business datasets.
-- Analytical screenshots containing fabricated performance figures.
-- The obsolete eight-page browser demo and CSV-only export positioning.
+- Retains the generalized 18-page analytical architecture.
+- Adds stronger regression coverage for weighted AST, safe division, partial-month budget proration, strict comparable boundaries, recovery scenarios and embedded Delivery accounting.
+- Clarifies the distinction between Strict Comparable and Total Region analysis.
+- Preserves non-causal interpretation of Recovery scenario measures.
 
-### Validation
-- Added in-memory formula tests, temporary-file parser/export tests, publication scans, link checks, version checks, and generated-source checks.
+### Engineering hardening
 
-## 1.0.0 - 2026-08-26
+- Retains reproducible offline frontend generation.
+- Verifies source/app SHA-256 parity through the generation manifest.
+- Keeps Chart.js, chartjs-plugin-datalabels and xlsx-js-style local in the generated desktop frontend.
+- Clarifies Tauri Rust crate, CLI and build-tool versions separately.
+- Clarifies that Windows packaging source is committed while NSIS binaries are not built or published by the current CI workflow.
+
+### Presentation and governance
+
+- Rebuilds public documentation around the independent analytical system rather than recruitment-oriented presentation.
+- Adds project index, case study, technical walkthrough, evidence map, environment baseline and final validation documentation.
+- Adds a reviewed abstract overview image under `docs/assets/`.
+- Preserves the data-free publication policy: no real, synthetic, dummy or generated business dataset is committed.
+- Preserves result-screenshot, binary, credential and private-infrastructure exclusions.
+- Clarifies SQL as an engine-neutral analytical reference.
+- Clarifies Power BI as design/mapping documentation only.
+
+## 1.0.0 — 2026-08-26
 
 ### Added
-- Public portfolio-safe derivative of the private analytics project.
-- An earlier demonstration-data approach, removed in 1.0.2 under the data-free publication policy.
-- Executive Overview, Budget Gap, LFL, Intervention Impact, Delivery Channel Impact, Customer Count & AST, Branch Detail, and Data Quality pages.
+
+- Executive Overview, Budget Gap, LFL, Intervention Impact, Delivery Channel Impact, Customer Count & AST, Branch Detail and Data Quality analysis.
 - Cross-filtering by city and branch.
-- Strict comparable vs total-scope LFL.
-- Budget proration for partial-month date ranges.
+- Strict comparable versus total-scope LFL.
+- Partial-month budget proration.
 - Counterfactual intervention-recovery analysis with non-causal labeling.
-- CSV export for the active analytical table.
-- SQL examples, KPI catalog, architecture, data model, Power BI mapping, and interview notes.
-- Optional Tauri desktop packaging skeleton.
+- SQL examples, KPI catalog, architecture, data model and Power BI mapping.
+- Optional Tauri desktop packaging structure.
 
 ### Security
-- Removed private datasets, real geographic labels, real branch identifiers, organization branding, credentials, and internal infrastructure details.
+
+- Removed private datasets, real geographic labels, real branch identifiers, organization branding, credentials and internal infrastructure details.
 - Generalized business channel names and operating rules.
