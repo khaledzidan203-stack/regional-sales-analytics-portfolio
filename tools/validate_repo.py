@@ -75,7 +75,7 @@ if "design/mapping only" not in power_bi:
     raise SystemExit("Power BI runtime boundary is missing from documentation.")
 
 catalog = (ROOT / "docs" / "analytical_methodology" / "page-catalog.md").read_text(encoding="utf-8")
-catalog_pages = len(re.findall(r"^\\|\\s*\\d+\\s*\\|", catalog, re.MULTILINE))
+catalog_pages = len(re.findall(r"^\|\s*\d+\s*\|", catalog, re.MULTILINE))
 if catalog_pages != 18:
     raise SystemExit(f"Expected 18 documented catalog rows; found {catalog_pages}.")
 
