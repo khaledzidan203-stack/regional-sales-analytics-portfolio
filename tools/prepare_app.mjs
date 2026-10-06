@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 
 const root = path.resolve(import.meta.dirname, '..');
 const source = path.join(root, 'source', 'Regional_Sales_Performance_V12_PORTFOLIO.html');
-if (!fs.existsSync(source)) throw new Error(`Portfolio V12 source not found: ${source}`);
+if (!fs.existsSync(source)) throw new Error(`Generalized V12 source not found: ${source}`);
 const appDir = path.join(root, 'app');
 const vendorDir = path.join(appDir, 'vendor');
 fs.mkdirSync(vendorDir, { recursive: true });
@@ -42,4 +42,4 @@ fs.writeFileSync(path.join(appDir, 'generation-manifest.json'), JSON.stringify({
   pageCount,
   version: '1.0.2'
 }, null, 2) + '\n');
-console.log('Generated offline app/index.html from the generalized portfolio V12 source.');
+console.log('Generated offline app/index.html from the generalized V12 analytical source.');
