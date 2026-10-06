@@ -1,17 +1,23 @@
 # Sanitization Manifest
 
-No source is transferred automatically. `Pending review` means the item is not approved for publication.
+This manifest records the publication status of the generalized public source.
 
-| Source Item | Classification | Destination | Action | Sanitization Required | Validation Required | Notes |
-|---|---|---|---|---|---|---|
-| Private V12 analytical HTML | SANITIZE FIRST | `source/Regional_Sales_Performance_V12_PORTFOLIO.html` | Reproducibly generalize identifiers and labels | Yes | Privacy, logic, schema, UI, and in-memory tests | No embedded logo or records |
-| Private generated frontend | GENERATED / DENIED | `app/index.html` | Regenerate from public source | Yes | Reproducibility, offline, and parity checks | Never copied directly |
-| Private Tauri/Rust architecture | SANITIZE FIRST | `src-tauri/` | Recreate from verified configuration | Yes | Package/version/build validation | No private icons or target metadata |
-| `src-tauri/tauri.conf.json` | SANITIZE FIRST | `src-tauri/tauri.conf.json` | Curate later | Yes | CSP, bundle, window, and installer validation | Remove unapproved branding |
-| `src-tauri/src/main.rs` | REVIEW | `src-tauri/src/main.rs` | Review before reuse | Possibly | Console/subsystem and entry-point checks | Small Rust entry point |
-| `src-tauri/src/lib.rs` | REVIEW | `src-tauri/src/lib.rs` | Review before reuse | Possibly | Tauri startup smoke test | No transfer in this phase |
-| `package.json` | SANITIZE FIRST | `package.json` | Update later | Yes | Dependency, version, and script validation | Align with portfolio identity and V12 dependencies |
-| Private prepare-app pattern | SANITIZE FIRST | `tools/prepare_app.mjs` | Recreate for public source | Yes | Deterministic generation and path scan | Targets generalized source only |
-| `BUILD_FINAL.bat` | SANITIZE FIRST | `scripts/build-windows.bat` | Replace later | Yes | Clean-machine build test | Remove private wording and shell-launch behavior as needed |
-| `README_FINAL_AR.txt` | DOCUMENTATION / SANITIZE FIRST | `docs/desktop_application/` | Rewrite later | Yes | Documentation and path scan | Do not copy verbatim during foundation phase |
-| Private icons/assets | DO NOT PUBLISH | None | Exclude | Yes | Logo and asset scan | Generic text identity only |
+| Public Artifact | Status | Publication Rule | Validation |
+|---|---|---|---|
+| `source/Regional_Sales_Performance_V12_PORTFOLIO.html` | APPROVED GENERALIZED SOURCE | No embedded business rows, private identifiers, logo assets, private paths or blocked terminology | Privacy scan, source tests, JavaScript syntax |
+| `app/index.html` | GENERATED / APPROVED | Must be regenerated from the generalized source; never edited as the authoritative source | Source/app SHA-256 manifest + zero-diff generation |
+| `app/vendor/` | APPROVED LOCAL DEPENDENCIES | Only reviewed package artifacts required for offline runtime | Presence and offline-reference checks |
+| `src-tauri/` | APPROVED SOURCE | Packaging source only; no compiled artifacts | Version/configuration checks |
+| `package.json` / lockfile | APPROVED METADATA | Public dependency/build metadata only | Version and dependency review |
+| `tools/` | APPROVED SOURCE | Generalized analytics helpers, generation, validation and privacy controls | CI execution |
+| `tests/` | APPROVED TESTS | In-memory or temporary fixtures only | CI execution |
+| `sql/` | APPROVED REFERENCE | Engine-neutral generalized analytical logic only | Documentation/source review |
+| `docs/` | APPROVED DOCUMENTATION | No business figures or reverse mapping to private terminology | Link + privacy validation |
+| `docs/assets/Regional Sales Analytics Dashboard.png` | APPROVED SCHEMATIC | Placeholder/illustrative visual only; not business-result evidence | Manual review + repository size cap |
+| Executables / installers | DENIED IN CURRENT RELEASE | Do not publish until binary release gates pass | Future Windows/binary validation required |
+| Business datasets | DENIED | No real, synthetic, dummy or generated business dataset | Artifact scan |
+| Analytical result screenshots | DENIED | No screenshots containing business figures | Artifact/publication review |
+
+## Core rule
+
+Public artifacts are generalized or generated from generalized source. No private output is copied automatically into the public release.
