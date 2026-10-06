@@ -2,7 +2,7 @@
   "name": "regional-sales-performance-desktop",
   "version": "1.0.2",
   "private": true,
-  "description": "Data-free 18-page regional sales analytics and Windows desktop application portfolio.",
+  "description": "Data-free 18-page regional sales analytics and Windows desktop application.",
   "scripts": {
     "dev": "python -m http.server 8000",
     "prepare-app": "node tools/prepare_app.mjs",
