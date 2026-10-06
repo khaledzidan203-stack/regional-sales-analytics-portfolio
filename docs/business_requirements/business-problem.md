@@ -12,4 +12,4 @@ A regional branch network needs a consistent decision-support view of:
 - data exceptions that may invalidate management conclusions; and
 - actionable follow-up priorities grounded in the current filter context.
 
-The public portfolio documents these requirements without company identities, operating figures, branch identifiers, or datasets.
+The public release documents these requirements without company identities, operating figures, branch identifiers, or datasets.
