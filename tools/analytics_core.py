@@ -1,4 +1,4 @@
-"""Generalized analytical formulas used by data-free portfolio tests."""
+"""Generalized analytical formulas used by data-free regression tests."""
 from __future__ import annotations
 
 import csv
