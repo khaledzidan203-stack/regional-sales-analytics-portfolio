@@ -2,7 +2,7 @@
 name = "regional-sales-performance-desktop"
 version = "1.0.2"
 description = "Regional Sales Performance Analytics desktop application"
-authors = ["Portfolio Maintainer"]
+authors = ["Project Maintainer"]
 edition = "2021"
 
 [lib]
