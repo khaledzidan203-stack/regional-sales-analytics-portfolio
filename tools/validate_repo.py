@@ -1,4 +1,4 @@
-"""Portfolio-only structural, source, version, link, and artifact validation."""
+"""Structural, source, version, evidence, link, and artifact validation."""
 from __future__ import annotations
 
 import hashlib
@@ -23,6 +23,10 @@ required = [
     "docs/kpi_dictionary/KPI_DICTIONARY.md", "docs/recovery/methodology.md",
     "docs/delivery_channel/methodology.md", "docs/data_quality/rules.md",
     "docs/export/xlsx-export.md", "tests/test_analytics.py", "tests/test_source.py",
+    "PROJECT_NOTES.md", "docs/PROJECT_INDEX.md", "docs/CASE_STUDY.md",
+    "docs/TECHNICAL_WALKTHROUGH.md", "docs/PROJECT_EVIDENCE_MAP.md",
+    "docs/FINAL_RELEASE_VALIDATION.md", "docs/ENVIRONMENT_BASELINE.md",
+    "docs/assets/README.md", "docs/assets/Regional Sales Analytics Dashboard.png",
 ]
 missing = [item for item in required if not (ROOT / item).exists()]
 if missing:
@@ -52,6 +56,28 @@ source_hash = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
 app_hash = hashlib.sha256(APP.read_bytes()).hexdigest()
 if manifest != {"sourceSha256": source_hash, "appSha256": app_hash, "pageCount": 18, "version": "1.0.2"}:
     raise SystemExit("Generated frontend manifest does not match source/app hashes.")
+
+if (ROOT / "PORTFOLIO_NOTES.md").exists():
+    raise SystemExit("Recruitment-oriented notes must be replaced by PROJECT_NOTES.md.")
+
+readme = (ROOT / "README.md").read_text(encoding="utf-8")
+if "Featured Portfolio" in readme or "Skills demonstrated" in readme:
+    raise SystemExit("Recruitment-oriented README wording remains.")
+if "Regional%20Sales%20Analytics%20Dashboard.png" not in readme:
+    raise SystemExit("README presentation image link is missing.")
+
+hero = ROOT / "docs" / "assets" / "Regional Sales Analytics Dashboard.png"
+if hero.stat().st_size > 2 * 1024 * 1024:
+    raise SystemExit("Presentation asset exceeds the 2 MB publication cap.")
+
+power_bi = (ROOT / "docs" / "POWER_BI_MAPPING.md").read_text(encoding="utf-8").lower()
+if "design/mapping only" not in power_bi:
+    raise SystemExit("Power BI runtime boundary is missing from documentation.")
+
+catalog = (ROOT / "docs" / "analytical_methodology" / "page-catalog.md").read_text(encoding="utf-8")
+catalog_pages = len(re.findall(r"^\\|\\s*\\d+\\s*\\|", catalog, re.MULTILINE))
+if catalog_pages != 18:
+    raise SystemExit(f"Expected 18 documented catalog rows; found {catalog_pages}.")
 
 script_match = re.search(r"<script>([\s\S]*)</script>", html)
 if not script_match:
@@ -88,4 +114,4 @@ for doc in [ROOT / "README.md", *ROOT.joinpath("docs").rglob("*.md")]:
 if broken:
     raise SystemExit("Broken Markdown links:\n- " + "\n- ".join(broken))
 
-print("Repository validation passed: 18 pages, version 1.0.2, generated frontend, artifacts, syntax, and links.")
+print("Repository validation passed: 18 pages, version 1.0.2, source/app parity, evidence boundaries, artifacts, syntax, and links.")
