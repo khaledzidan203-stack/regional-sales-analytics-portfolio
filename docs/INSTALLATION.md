@@ -37,4 +37,4 @@ npm ci
 npm run desktop:build
 ```
 
-The public portfolio does not ship compiled binaries or business datasets in Git.
+The public source release does not ship compiled binaries or business datasets in Git.
