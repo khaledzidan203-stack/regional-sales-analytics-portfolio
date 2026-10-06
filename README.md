@@ -1,165 +1,508 @@
-# Regional Sales Performance Analytics & Windows Desktop Application
+# Regional Sales Performance Analytics
 
-A production-style regional sales performance and decision-support application combining an 18-page analytical engine with a Windows desktop delivery layer built with HTML, CSS, JavaScript, Chart.js, XLSX processing, Tauri 2, Rust, Wry, and WebView2.
+## 18-Page Decision-Support Engine & Windows Desktop Architecture
 
-This public portfolio repository contains the analytical architecture, desktop application source, methodology, tests, and documentation only. Business datasets are intentionally excluded.
+[![Repository Validation](https://github.com/khaledzidan203-stack/regional-sales-analytics-portfolio/actions/workflows/validate.yml/badge.svg)](https://github.com/khaledzidan203-stack/regional-sales-analytics-portfolio/actions/workflows/validate.yml)
 
-No company data, customer data, branch performance data, credentials, or proprietary datasets are included. Analytical screenshots, executables, and installers are also excluded.
+**Live data-free interface:** https://khaledzidan203-stack.github.io/regional-sales-analytics-portfolio/app/
 
-## Featured Portfolio
+Regional Sales Performance Analytics is a local-first analytical system for multi-branch performance management. It combines an 18-page HTML/CSS/JavaScript analytical engine with Chart.js visualization, XLSX input/export, reusable formula tests, publication controls, and a Tauri/Rust Windows desktop packaging layer.
 
-**Khaled Zidan — Healthcare & Business Data Analytics**
+> **Data-free boundary:** this repository intentionally commits no real, synthetic, dummy, or generated business dataset. Runtime results depend on user-supplied schema-compatible files selected locally. No company data, customer data, branch-performance records, credentials, compiled executable, installer, or analytical result screenshot is published.
 
-[Saudi Healthcare Analytics](https://github.com/khaledzidan203-stack/saudi-healthcare-analytics) ·
-[Hospital360](https://github.com/khaledzidan203-stack/Hospital360) ·
-[Online Retail Growth & Customer Intelligence](https://github.com/khaledzidan203-stack/online-retail-growth-customer-intelligence) ·
-[Pharmacy Category Management](https://github.com/khaledzidan203-stack/pharmacy-category-management) ·
-[Regional Sales Performance](https://github.com/khaledzidan203-stack/regional-sales-analytics-portfolio)
+<img src="docs/assets/Regional%20Sales%20Analytics%20Dashboard.png" alt="Regional Sales Performance Analytics overview" width="100%">
 
-**Core stack:** Power BI · SQL · Python · DAX · Analytics Engineering · Healthcare / Pharmacy / Retail Analytics
+> **Visual evidence note:** the image above is a presentation schematic. Its charts and KPI cards use placeholders or illustrative shapes rather than committed business results. Authoritative evidence comes from the generalized analytical source, generated offline frontend, tests, manifest, desktop source, SQL references, methodology, and validation workflows.
 
-## Executive Summary
+**Start here:** [Case study](docs/CASE_STUDY.md) · [Technical walkthrough](docs/TECHNICAL_WALKTHROUGH.md) · [Evidence map](docs/PROJECT_EVIDENCE_MAP.md) · [Project index](docs/PROJECT_INDEX.md) · [Final validation](docs/FINAL_RELEASE_VALIDATION.md)
 
-The project centralizes multi-source performance logic in a local-first analytical application. It evaluates sales against budget, customer traffic and weighted average sales per transaction (AST), like-for-like performance, intervention recovery scenarios, component-channel contribution, branch lifecycle effects, and data readiness.
+## Project at a glance
 
-## Business Problem
-
-Regional leadership needs a consistent way to identify budget gaps, distinguish traffic from basket-size effects, compare a stable branch base with prior-year periods, assess post-intervention momentum without claiming causality, isolate an embedded delivery component without double counting, and surface data issues before decisions are made.
-
-## Project Objectives
-
-- Maintain one calculation model across KPIs, charts, tables, insights, and exports.
-- Support strict-comparable and total-region perspectives.
-- Package the same analytical frontend as an offline Windows desktop application.
-- Demonstrate the system without distributing business datasets.
-
-## Final Product Overview
-
-The portfolio source retains the final 18-page architecture, generalized as Branch, Core Retail, Service Channel, Delivery Channel, and Priority Sales. Users provide their own schema-compatible files at runtime; the repository ships no business data.
-
-## Technology Stack
-
-| Layer | Technology |
+| Area | Current implementation |
 |---|---|
-| Analytical UI | HTML5, CSS3, JavaScript |
-| Visualization | Chart.js 4.4.1, chartjs-plugin-datalabels 2.2.0 |
-| Spreadsheet input/export | xlsx-js-style 1.2.0 |
-| Desktop | Tauri 2.11.5, Rust 2021, Wry, WebView2 |
-| Windows packaging | NSIS, x64 |
-| Validation | Python standard library, Node.js, GitHub Actions |
+| Analytical interface | 18 integrated pages |
+| Frontend | HTML5, CSS3, JavaScript |
+| Visualization | Chart.js 4.4.1 + chartjs-plugin-datalabels 2.2.0 |
+| Spreadsheet processing | xlsx-js-style 1.2.0 |
+| Generated offline frontend | `app/index.html` |
+| Source-to-app traceability | SHA-256 generation manifest |
+| Desktop host | Tauri/Rust/Wry/WebView2 architecture |
+| Tauri Rust crate | 2.11.5 |
+| Tauri CLI | 2.8.4 |
+| Windows bundle target | NSIS, x64 |
+| Formula tests | Python standard library |
+| SQL | engine-neutral analytical reference |
+| Power BI | design/mapping documentation only |
+| Business datasets | intentionally excluded |
+| Result screenshots | intentionally excluded |
+| Validation | GitHub Actions + privacy/publication gates |
 
-## Analytical Architecture
+## Business problem
 
-`Inputs -> parsing -> normalization -> data quality -> analytical state -> filters -> KPI engines -> charts/tables -> insights -> XLSX export`
+Regional leadership needs one consistent analytical model to answer several questions without allowing charts, exports, or pages to drift into different definitions:
 
-See [analytical architecture](docs/architecture/analytical-architecture.md) and [data flow](docs/architecture/data-flow.md).
+- Where is the budget gap concentrated?
+- Is weakness driven by traffic, basket value, or both?
+- Is performance improving on a comparable branch base?
+- How should openings and closures be separated from stable-base performance?
+- Did Pre/Post performance momentum change after an intervention date?
+- What does an embedded delivery component contribute without double counting?
+- Which branches, cities, categories, or size groups require review?
+- Are the loaded files ready for interpretation?
+- Can the same filtered state be exported reliably?
 
-## Desktop Architecture
+The project centralizes those questions into one calculation and filter architecture.
 
-`Generalized V12 source -> prepare-app -> offline app/index.html -> Tauri -> Rust/Wry -> WebView2 -> Windows app -> NSIS installer`
+## End-to-end architecture
 
-See [desktop architecture](docs/architecture/desktop-architecture.md) and [release policy](docs/desktop_application/RELEASE_POLICY.md).
+```text
+User-Supplied Local Files
+        ↓
+Parsing + Schema Recognition
+        ↓
+Typed Normalization
+        ↓
+Data Quality Evaluation
+        ↓
+Central Analytical State
+        ↓
+Global Filters + Chart Cross-Filters
+        ↓
+KPI / Budget / LFL / Recovery / Channel Engines
+        ↓
+Charts + Tables + Generated Insights
+        ↓
+Current-Page or Full XLSX Export
+        ↓
+Offline Frontend
+        ↓
+Tauri / Rust Windows Desktop Packaging
+```
 
-## Input Data
+Visuals are consumers of centrally calculated results; they are not treated as independent data sources.
 
-The runtime supports a Sales Collection CSV, Sales Budget Breakdown XLSX, and optional Delivery Channel XLSX. Schemas and grains are documented, but input files are not distributed.
+## Runtime input model
 
-## 18 Analytical Pages
+The analytical engine supports schema-compatible local inputs for:
 
-The pages cover Executive Overview, Budget Gap, five LFL views, Recovery, Delivery impact, channel analyses, Customer Count and AST, geography and branch detail, segmentation, lifecycle, Action Plan, and Data Quality. See the [page catalog](docs/analytical_methodology/page-catalog.md).
+- Sales Collection CSV;
+- Sales Budget Breakdown XLSX;
+- optional Delivery Channel XLSX.
 
-## KPI Framework
+The logical analytical model is:
 
-Confirmed measures include Total Sales, Budget, Achievement, Gap, Core Retail, Service Channel, Priority Sales, Customer Count, weighted AST, mixes, LFL growth, recovery scenario measures, Delivery contribution, and Data Readiness. See the [KPI dictionary](docs/kpi_dictionary/KPI_DICTIONARY.md).
+```text
+Branch Master (1) ─────< Daily Sales (*)
+      │
+      ├───────────────< Monthly Budget (*)
+      │
+      └───────────────< Delivery Channel (*)
+```
 
-## Budget Analysis
+Primary grains:
 
-Budget is evaluated at total and segment levels. Partial-month selections prorate monthly targets by selected calendar days before achievement and gap are calculated.
+- Branch Master: one row per branch;
+- Daily Sales: Date × Branch;
+- Monthly Budget: Month × Branch;
+- Delivery Channel: Date × Branch with channel activity.
 
-## LFL Framework
+No input files are committed.
 
-Current dates align with the same calendar dates in the prior year. Daily, weekly, monthly, cumulative, and branch-level views use the same central calculation path. See [LFL methodology](docs/lfl/methodology.md).
+## Core KPI framework
 
-## Strict Comparable vs Total Region
+The confirmed model includes:
 
-Strict Comparable removes lifecycle distortion by requiring branch availability across both windows. Total Region follows current filters and includes network change. See [scope methodology](docs/lfl/strict-vs-total.md).
+- Total Sales
+- Core Retail Sales
+- Service Channel Sales
+- Priority Sales
+- Customer Count
+- weighted AST
+- Budget
+- Achievement
+- Budget Gap
+- segment achievement
+- Priority Rate
+- Service Mix
+- LFL Growth
+- Strict LFL
+- Total LFL
+- Pre LFL
+- Post LFL
+- Momentum
+- Expected Post
+- Estimated Recovery
+- Delivery % of Core Retail
+- Core Retail ex-Delivery
 
-## Sales, Core Retail, Service Channel, Customer Count & AST LFL
+### Total Sales
 
-Each major measure supports selectable strict or total scope with aligned current/prior periods and branch contribution analysis.
+```text
+Total Sales = Core Retail Sales + Service Channel Sales
+```
 
-## Recovery & Intervention
+### Weighted AST
 
-User-selected Pre and Post windows calculate Pre LFL, Post LFL, momentum, shortfall movement, expected post, and estimated recovery. This is a counterfactual scenario, not causal proof. See [Recovery methodology](docs/recovery/methodology.md).
+```text
+AST = Total Sales / Total Customer Count
+```
 
-## Delivery Channel Impact
+The engine does **not** average pre-calculated daily AST values.
 
-Delivery Channel is already included in Core Retail. It is never added again to Total Sales. The application evaluates Core Retail ex-Delivery, penetration, LFL uplift, budget uplift, and gap recovery. See [Delivery methodology](docs/delivery_channel/methodology.md).
+### Budget Gap
 
-## Customer Count & AST
+```text
+Budget Gap = Total Sales - Budget
+```
 
-AST is weighted: total sales divided by total customer count. Traffic and basket movement are analyzed together to distinguish volume and productivity effects.
+Partial-month selections prorate monthly targets by the selected calendar days before achievement and gap are interpreted.
 
-## City / Branch / Category Analysis
+## Like-for-Like framework
 
-Performance can be grouped by geography, branch, category, and size while retaining the active date, lifecycle, and chart-filter context.
+Current dates are aligned with the same calendar dates in the prior year.
 
-## Lifecycle Analysis
+The system supports:
 
-New-branch ramp-up, closed-branch review, sales after closure, and budget after closure are separated from stable comparable performance.
+- daily LFL;
+- cumulative LFL;
+- weekly LFL;
+- monthly LFL;
+- branch-level contribution;
+- multiple sales/customer measures.
+
+### Strict Comparable
+
+Strict scope removes lifecycle distortion by requiring a branch to exist across both comparison windows.
+
+### Total Region / Current Filters
+
+Total scope follows the current selected population without comparable-branch exclusion.
+
+Keeping both views prevents network openings and closures from being mistaken for stable-base performance change.
+
+## Traffic and AST analysis
+
+Customer Count and weighted AST are analyzed together so the user can distinguish:
+
+- lower traffic with stable basket value;
+- stable traffic with lower basket value;
+- improvement in both;
+- offsetting movement between traffic and basket.
+
+This prevents sales movement from being interpreted as one undifferentiated outcome.
+
+## Recovery and intervention scenario
+
+Users define Pre and Post windows.
+
+The model calculates:
+
+- Pre LFL;
+- Post LFL;
+- momentum in percentage points;
+- Expected Post;
+- Estimated Recovery.
+
+```text
+Expected Post = Post LY × (1 + Pre LFL)
+
+Estimated Recovery = Actual Post - Expected Post
+```
+
+This is a **counterfactual scenario indicator**, not proof that an intervention caused the observed change.
+
+## Embedded Delivery contribution
+
+Delivery Channel is modeled as a component already contained within Core Retail.
+
+Therefore:
+
+```text
+Total Sales = Core Retail + Service Channel
+```
+
+and **not**:
+
+```text
+Total Sales = Core Retail + Service Channel + Delivery
+```
+
+For contribution analysis:
+
+```text
+Core Retail ex-Delivery = Core Retail - Delivery
+```
+
+This prevents double counting.
+
+## Branch lifecycle
+
+Opening and closing dates support:
+
+- comparable-base eligibility;
+- new-branch ramp-up review;
+- closed-branch review;
+- sales-after-closure checks;
+- budget-after-closure checks.
+
+Lifecycle effects are separated from stable comparable performance.
+
+## 18 analytical pages
+
+| # | Page |
+|---:|---|
+| 1 | Executive Overview |
+| 2 | Budget Gap |
+| 3 | Sales Like-for-Like |
+| 4 | Core Retail Like-for-Like |
+| 5 | Service Channel Like-for-Like |
+| 6 | Customer Count & AST Like-for-Like |
+| 7 | Recovery & Intervention Impact |
+| 8 | Delivery Channel Impact |
+| 9 | Service Channel Analysis |
+| 10 | Core Retail Analysis |
+| 11 | Priority Sales Analysis |
+| 12 | Customer Count & AST |
+| 13 | City Performance |
+| 14 | Branch Detail |
+| 15 | Category & Size |
+| 16 | New & Closed Branches |
+| 17 | Action Plan Generator |
+| 18 | Data Quality |
+
+See the full [page catalog](docs/analytical_methodology/page-catalog.md).
+
+## Filtering and cross-filtering
+
+Searchable multi-select controls support:
+
+- Year
+- Month
+- Week
+- Date From / Date To
+- City
+- Branch
+- Delivery-branch scope
+- Status
+- Category
+- Size Group
+
+Chart selections create visible filter chips with targeted clear controls.
+
+The analytical state is shared so cards, charts, tables, insights, and exports operate under the same filter context.
 
 ## Action Plan Generator
 
-The engine converts current filtered findings into generalized issue, evidence, branch scope, hypothesis, action, owner role, timing, and impact fields. Organization-specific owners and thresholds are excluded.
+The engine converts current filtered findings into generalized fields such as:
 
-## Data Quality
+- issue;
+- evidence;
+- branch scope;
+- hypothesis;
+- suggested action;
+- owner role;
+- timing;
+- expected impact.
 
-The review layer checks malformed data, duplicates, missing mappings, lifecycle conflicts, invalid channel relationships, customer-count exceptions, incomplete periods, and Delivery matching. See [Data Quality rules](docs/data_quality/rules.md).
+Organization-specific owners and private thresholds are intentionally excluded.
 
-## Global Filtering and Chart Cross-filtering
+## Data Quality layer
 
-Searchable multi-select slicers cover year, month, week, city, branch, status, category, and size. Date ranges and Delivery-branch scope are also supported. Chart clicks create visible filter chips with targeted clear controls. See [filtering documentation](docs/analytical_methodology/filtering-and-crossfiltering.md).
+The review layer checks conditions such as:
 
-## Excel Export
+- malformed rows;
+- duplicates;
+- missing branch mappings;
+- lifecycle conflicts;
+- invalid segment relationships;
+- customer-count exceptions;
+- incomplete periods;
+- Delivery matching issues.
 
-Current-page and complete-analysis exports produce styled multi-sheet XLSX workbooks with an INDEX sheet. Full analysis can use current filters or the complete loaded model. See [XLSX export](docs/export/xlsx-export.md).
+Data Quality is a decision-readiness layer rather than a hidden preprocessing step.
 
-## Desktop Packaging
+## XLSX export
 
-Version 1.0.2 uses Tauri 2, a hidden release console, disabled devtools, maximized startup, local JavaScript dependencies, WebView2 rendering, Windows x64 targeting, and NSIS packaging.
+The analytical source supports:
 
-## Business Data Policy
+- Current Page export;
+- Complete Analysis export;
+- styled multi-sheet XLSX workbooks;
+- INDEX sheet;
+- current-filter or complete-model export scope.
 
-No real, synthetic, dummy, or generated business dataset is committed. Formula tests use small in-memory fixtures or temporary files removed by the test process.
+The workbook structure is also exercised through temporary-file tests without committing business data.
 
-## Screenshots
+## Source-to-app reproducibility
 
-Analytical screenshots are intentionally excluded from this public portfolio release.
+The generalized source is retained at:
 
-## Repository Structure
+`source/Regional_Sales_Performance_V12_PORTFOLIO.html`
 
-`source/` holds the generalized single-file analytical source; `app/` is the reproducible offline frontend; `src-tauri/` contains desktop packaging; `docs/`, `sql/`, `tests/`, and `tools/` cover methodology and validation.
+The offline frontend is generated by:
 
-## Installation
+`tools/prepare_app.mjs`
 
-Prerequisites: Node.js, Rust with the Windows MSVC toolchain, Tauri prerequisites, and WebView2. Run `npm ci`, `npm run prepare-app`, and `npm run desktop:build`. Building is optional for source review and produces local artifacts excluded by `.gitignore`.
+Generation performs:
 
-## Usage
+- replacement of required CDN references with local vendor files;
+- desktop safe-area injection;
+- 18-page count extraction;
+- SHA-256 source hash;
+- SHA-256 generated-app hash;
+- version capture.
 
-Open the generalized source or generated desktop frontend, upload privately held schema-compatible inputs at runtime, apply filters, inspect pages, and export the required analysis. Input data remains local to the running application.
+The resulting contract is stored in:
+
+`app/generation-manifest.json`
+
+CI regenerates the app and requires zero diff against the committed generated frontend.
+
+## Windows desktop architecture
+
+The generated frontend is packaged through the Tauri source layer:
+
+```text
+Generalized V12 Source
+        ↓
+prepare_app.mjs
+        ↓
+Offline app/index.html
+        ↓
+Tauri CLI
+        ↓
+Rust / Wry Host
+        ↓
+WebView2
+        ↓
+Windows x64 Application
+        ↓
+NSIS Bundle Target
+```
+
+Current source configuration includes:
+
+- application version 1.0.2;
+- Tauri Rust crate 2.11.5;
+- Tauri CLI 2.8.4;
+- Tauri build dependency 2.6.3;
+- Windows GUI subsystem;
+- maximized startup;
+- resizable window;
+- devtools disabled;
+- local-content CSP;
+- NSIS target.
+
+**Boundary:** GitHub Actions validates packaging source and generated frontend parity, but it does not build or publish an NSIS binary in this repository. Executables and installers remain excluded.
+
+## Engine-neutral SQL reference
+
+The `sql/` folder provides portable logical examples for:
+
+- schema design;
+- core KPIs;
+- LFL analysis;
+- data quality;
+- recovery analysis;
+- Delivery contribution.
+
+The SQL is intentionally engine-neutral. Date syntax or parameter binding may require adjustment for a selected database engine.
+
+## Power BI boundary
+
+`docs/POWER_BI_MAPPING.md` maps the generalized model to a recommended star schema and DAX patterns.
+
+There is **no committed PBIX, PBIP, PBIR, TMDL or PBIT runtime implementation**.
+
+Power BI is therefore an implementation blueprint, not runtime evidence.
+
+## Data-free publication model
+
+The repository intentionally excludes:
+
+- real business datasets;
+- synthetic business datasets;
+- dummy/generated business datasets;
+- business CSV/XLSX inputs;
+- customer or transaction records;
+- real branch identifiers;
+- company branding;
+- result screenshots containing business figures;
+- executables and installers;
+- credentials and internal infrastructure details.
+
+Tests use in-memory objects or temporary files that are removed automatically.
+
+This design allows analytical formulas and architecture to be reviewed without exposing or fabricating operational results.
 
 ## Validation
 
-Run `npm test` and `npm run validate`. CI checks page count, versions, formulas, generated-source parity, forbidden artifacts, private paths, business-data files, and Markdown links.
+Run:
 
-## Privacy & Publication Safety
+```bash
+npm ci
+npm test
+npm run validate
+npm run prepare-app
+git diff --exit-code -- app/index.html app/generation-manifest.json
+```
 
-Publication controls are defined in [the allowlist](PUBLICATION_ALLOWLIST.md), [denylist](PUBLICATION_DENYLIST.md), and [sanitization manifest](SANITIZATION_MANIFEST.md). Existing private binaries are not approved for release.
+GitHub Actions checks:
+
+- 18-page source structure;
+- version consistency;
+- analytical formula tests;
+- JavaScript syntax;
+- local desktop dependencies;
+- source/app SHA-256 manifest parity;
+- forbidden artifacts;
+- business-data exclusion;
+- Markdown links;
+- privacy-sensitive terminology;
+- credentials, paths, networks, and branding patterns;
+- generated frontend reproducibility.
+
+## Repository structure
+
+```text
+source/                generalized 18-page analytical source
+app/                   reproducibly generated offline frontend + local vendor files
+src-tauri/             Tauri/Rust desktop packaging source
+tools/                 analytical helpers, generator, validation, privacy scan
+tests/                 formula, source, and publication-contract tests
+sql/                   engine-neutral analytical SQL references
+docs/                  methodology, architecture, KPI and evidence documentation
+docs/assets/           presentation-only schematic assets
+.github/workflows/     automated validation
+```
+
+## Documentation
+
+- [Project Index](docs/PROJECT_INDEX.md)
+- [Case Study](docs/CASE_STUDY.md)
+- [Technical Walkthrough](docs/TECHNICAL_WALKTHROUGH.md)
+- [Project Evidence Map](docs/PROJECT_EVIDENCE_MAP.md)
+- [Architecture](docs/architecture/analytical-architecture.md)
+- [Data Flow](docs/architecture/data-flow.md)
+- [Desktop Architecture](docs/architecture/desktop-architecture.md)
+- [KPI Dictionary](docs/kpi_dictionary/KPI_DICTIONARY.md)
+- [LFL Methodology](docs/lfl/methodology.md)
+- [Recovery Methodology](docs/recovery/methodology.md)
+- [Delivery Methodology](docs/delivery_channel/methodology.md)
+- [Data Quality Rules](docs/data_quality/rules.md)
+- [XLSX Export](docs/export/xlsx-export.md)
+- [Power BI Mapping](docs/POWER_BI_MAPPING.md)
+- [Privacy and Sanitization](docs/PRIVACY_AND_SANITIZATION.md)
+- [Final Release Validation](docs/FINAL_RELEASE_VALIDATION.md)
 
 ## Limitations
 
-No datasets, analytical screenshots, PBIX file, executable, or installer are distributed. Runtime conclusions depend on the completeness and correctness of user-supplied data. Recovery estimates do not prove causality.
+- No business dataset is distributed, so the public repository does not publish business KPI outcomes.
+- Runtime conclusions depend on the completeness and correctness of locally supplied files.
+- Recovery estimates are scenario measures, not causal proof.
+- The SQL layer is a portable reference rather than a database-specific deployed implementation.
+- Power BI is design-only.
+- CI does not publish or prove an NSIS installation on a clean Windows machine.
+- The hero graphic is a presentation schematic, not an analytical result screenshot.
 
-## Lessons Learned
-
-Central calculations, weighted ratios, explicit comparison scope, component-channel accounting, reproducible frontend generation, local dependency vendoring, and publication-first validation materially improve reliability. See [project lessons](docs/lessons_learned/project-lessons.md) and [technical decisions](docs/technical_decisions/).
+Licensed under the [MIT License](LICENSE).
